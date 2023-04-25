@@ -105,7 +105,7 @@ To run this project, you need .Net 7 and Node.js (v18.16.0+) installed on your c
 
     ![img](images/error_3.png)
 
-There are also pages for wrong address on the frontend (proceed to `http://localhost:3000/foo`) and internal BNP or my APIs (proceed to `http://localhost:3000/error`)
+There are also pages for wrong address on the frontend (proceed to `http://localhost:3000/foo`) and internal BNP or my APIs errors (proceed to `http://localhost:3000/error`)
 
 ### Using Postman
 Open Postman and import `Dynatrace task.postman_collection.json` file

@@ -84,7 +84,7 @@ namespace BankApp.API.Services
 
             if (quotationNumber > 255 || quotationNumber < 1)
             {
-                throw new ArgumentException("Cuotation number must not be in range 1 to 255.");
+                throw new ArgumentException("Quotation number must not be in range 1 to 255.");
             }
 
             using var httpClient = this.clientFactory.CreateClient("NBP");
@@ -119,7 +119,7 @@ namespace BankApp.API.Services
 
             if (quotationNumber > 255 || quotationNumber < 1)
             {
-                throw new ArgumentException("Cuotation number must not be in range 1 to 255.");
+                throw new ArgumentException("Quotation number must not be in range 1 to 255.");
             }
 
             using var httpClient = this.clientFactory.CreateClient("NBP");

@@ -400,3 +400,4 @@ FodyWeavers.xsd
 .idea
 node_modules
 package-lock.json
+build

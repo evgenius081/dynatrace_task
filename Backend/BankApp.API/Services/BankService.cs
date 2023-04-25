@@ -24,9 +24,16 @@ namespace BankApp.API.Services
         /// </summary>
         /// <param name="clientFactory">Factory for creating <see cref="HttpClient"/>.</param>
         /// <param name="configuration">Configuration object for extracting data from appsettings.json.</param>
+        /// <exception cref="ArgumentNullException">Thrown if client factory or configuration is
+        /// null.</exception>
         public BankService(IHttpClientFactory clientFactory, IConfiguration configuration)
         {
-            this.clientFactory = clientFactory;
+            this.clientFactory = clientFactory ?? throw new ArgumentNullException(nameof(clientFactory));
+            if (configuration == null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
+
             this.averageRateTableName = configuration.GetValue<string>("AverageRateTableName") !;
             this.buySellRatesTableName = configuration.GetValue<string>("BuySellRatesTableName") !;
         }
@@ -77,7 +84,7 @@ namespace BankApp.API.Services
         /// to NBP API.</exception>
         public async Task<BuySellRatesList> GetMajorDifference(string code, int quotationNumber)
         {
-            if (!ISO._4217.CurrencyCodesResolver.Codes.Any(c => c.Code == code.ToUpper()))
+            if (string.IsNullOrEmpty(code) || !ISO._4217.CurrencyCodesResolver.Codes.Any(c => c.Code == code.ToUpper()))
             {
                 throw new ArgumentException("Currency code is wrong.");
             }
@@ -112,7 +119,7 @@ namespace BankApp.API.Services
         /// to NBP API.</exception>
         public async Task<AverageRateList> GetMaxMinExchangeRates(string code, int quotationNumber)
         {
-            if (!ISO._4217.CurrencyCodesResolver.Codes.Any(c => c.Code == code.ToUpper()))
+            if (string.IsNullOrEmpty(code) || !ISO._4217.CurrencyCodesResolver.Codes.Any(c => c.Code == code.ToUpper()))
             {
                throw new ArgumentException("Currency code is wrong.");
             }

@@ -19,7 +19,7 @@ To run this project, you need .Net 7 and Node.js (v18.16.0+) installed on your c
 **Alternatively**, you can run backend using Microsoft Visual Studio 2022 following these steps:
 1. Open parent project folder
 2. Open folder `Backend`
-3. Open `Backend.sln` file in Visual Studio 2022 or later
+3. Open `Backend.sln` file in Visual Studio 2022 or newer
 4. Choose `https` launch option if not chosen
 5. Run the project using button or `Ctrl+F5`
 
@@ -124,5 +124,17 @@ Open Postman and import `Dynatrace task.postman_collection.json` file
 
     ![img](images/postman_3.png)
 
+##Runnig tests
+- Using Visual Studio:
+    1. Open `Backend.sln` file in Visual Studio 2022 or newer
+    2. Open `Test Explorer` (View->Test Explorer)
+    3. Press `Run all tests` button
+    
+        ![img](images/tests.png)
+- Using termianl
+    1. Open terminal window in project parent folder
+    2. In terminal type `cd Backend/BankApp.Tests`
+    3. In terminal type `dotnet test`
+    
 
 If you have any questions, feel free to contact yauheni.hulevich@gmail.com.
